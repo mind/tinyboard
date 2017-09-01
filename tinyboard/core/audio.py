@@ -22,7 +22,12 @@ def audio(tag, tensor, sample_rate=44100):
     Wave_write.close()
     audio_string = fio.getvalue()
     fio.close()
-    audio = Summary.Audio(sample_rate=sample_rate, num_channels=1, length_frames=len(
-        tensor_list), encoded_audio_string=audio_string, content_type='audio/wav')
+    audio = Summary.Audio(
+        sample_rate=sample_rate,
+        num_channels=1,
+        length_frames=len(tensor_list),
+        encoded_audio_string=audio_string,
+        content_type='audio/wav',
+    )
 
     return Summary(value=[Summary.Value(tag=tag, audio=audio)])

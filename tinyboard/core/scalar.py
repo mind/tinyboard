@@ -5,19 +5,14 @@ from tinyboard.proto.summary_pb2 import Summary
 
 
 def scalar(name, scalar, collections=None):
-    """Outputs a `Summary` protocol buffer containing a single scalar value.
-    The generated Summary has a Tensor.proto containing the input Tensor.
-    Args:
-      name: A name for the generated node. Will also serve as the series name in
-        TensorBoard.
-      tensor: A real numeric Tensor containing a single value.
-      collections: Optional list of graph collections keys. The new summary op is
-        added to these collections. Defaults to `[GraphKeys.SUMMARIES]`.
-    Returns:
-      A scalar `Tensor` of type `string`. Which contains a `Summary` protobuf.
-    Raises:
-      ValueError: If tensor has the wrong shape or type.
+    """Prepare a summary proto containing a scalar value.
+
+    :param string name: The name of the scalar series.
+    :param Tensor values: The scalar value. Should contain a single value.
+    :param list<string> collections: Optional collections keys. The new summary
+        will be added to these collections.
+    :returns Summary: The summary proto containing the scalar value.
+    :raises ValueError: If the incoming tensor has the wrong shape/type.
     """
-    return Summary(value=[
-        Summary.Value(tag=clean_tag(name), simple_value=float(scalar)),
-    ])
+    name = clean_tag(name)
+    return Summary(value=[Summary.Value(tag=name, simple_value=float(scalar))])

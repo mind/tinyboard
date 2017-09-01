@@ -1,12 +1,13 @@
 // Protocol buffer representing the shape of tensors.
 
 syntax = "proto3";
+
+package tinyboard;
+
 option cc_enable_arenas = true;
 option java_outer_classname = "TensorShapeProtos";
 option java_multiple_files = true;
 option java_package = "ai.tinymind.tinyboard";
-
-package tensorflow;
 
 // Dimensions of a tensor.
 message TensorShapeProto {

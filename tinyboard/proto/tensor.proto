@@ -1,14 +1,15 @@
 syntax = "proto3";
 
-package tensorflow;
+package tinyboard;
+
 option cc_enable_arenas = true;
 option java_outer_classname = "TensorProtos";
 option java_multiple_files = true;
 option java_package = "ai.tinymind.tinyboard";
 
-import "proto/resource_handle.proto";
-import "proto/tensor_shape.proto";
-import "proto/types.proto";
+import "resource_handle.proto";
+import "tensor_shape.proto";
+import "types.proto";
 
 // Protocol buffer representing a tensor.
 message TensorProto {

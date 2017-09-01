@@ -2,8 +2,12 @@ from setuptools import setup, find_packages
 
 __version__ = '0.1.0'
 
-requires = []
-pytorch_requires = []
+requires = [
+    'numpy>=1.13.1',
+    'pillow>=4.2.1',
+]
+
+pytorch_requires = ['torch']
 
 setup(
     name='tinyboard',
