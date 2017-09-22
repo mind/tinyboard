@@ -8,7 +8,7 @@ def scalar(name, scalar, collections=None):
     """Prepare a summary proto containing a scalar value.
 
     :param string name: The name of the scalar series.
-    :param Tensor values: The scalar value. Should contain a single value.
+    :param Tensor scalar: The scalar value. Should contain a single value.
     :param list<string> collections: Optional collections keys. The new summary
         will be added to these collections.
     :returns Summary: The summary proto containing the scalar value.
